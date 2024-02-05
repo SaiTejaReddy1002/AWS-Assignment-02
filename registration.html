@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #add8e6; /* Light blue background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .registration-container {
+            width: 420px;
+            padding: 24px;
+            background-color: #fff; /* White background for the form */
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        }
+        h1 {
+            color: #555; /* Darker font color for contrast */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 6px;
+            color: #555; /* Darker label color for readability */
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="file"],
+        input[type="email"] {
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #ddd; /* Softer border color */
+            border-radius: 6px; /* Rounded borders */
+            outline: none; /* Remove outline on focus */
+        }
+        button {
+            padding: 12px;
+            background-color: #4682b4; /* Steel blue button color */
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+        button:hover {
+            background-color: #4169e1; /* Royal blue button color on hover */
+        }
+        .message {
+            color: #ff4500; /* Orangered color for message */
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        p {
+            text-align: center;
+            margin-top: 16px;
+        }
+        a {
+            color: #4682b4; /* Link color matching the button */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="registration-container">
+    <h1>Join Us</h1>
+    <form action="{{url_for('registration')}}" method="POST" enctype="multipart/form-data">
+        <div class="message">{{ message }}</div>
+        <label for="username"><b>Username :</b></label>
+        <input id="username" name="username" type="text" placeholder="Enter your username" autocomplete="off">
+        <label for="password"><b>Password :</b></label>
+        <input id="password" name="password" type="password" placeholder="Create a password" autocomplete="off">
+        <label for="firstname"><b>First Name :</b></label>
+        <input id="firstname" name="firstname" type="text" placeholder="Your first name" autocomplete="off">
+        <label for="lastname"><b>Last Name :</b></label>
+        <input id="lastname" name="lastname" type="text" placeholder="Your last name" autocomplete="off">
+        <label for="email"><b>Email :</b></label>
+        <input id="email" name="email" type="email" placeholder="Your email address" autocomplete="off">
+        <label for="textfile"><b>Upload File :</b></label>
+        <input type="file" id="textfile" name="textfile">
+        <button id="submit" name="submit"><b>Sign Up</b></button>
+    </form>
+    <p>Already have an account? <a href="{{url_for('login')}}">Sign in here</a></p>
+</div>
+</body>
+</html>
